@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
     @product = Product.new
     @users = User.all
     @user = User.new
+    @sales = Sale.all
+    @sale = Sale.new
   end
   
   def create 

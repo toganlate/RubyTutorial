@@ -1,5 +1,4 @@
 <h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
 <h3>My Products</h3>
 <% @products.each do |product| %>
   <div>
@@ -21,8 +20,19 @@
     <%= button_to "Delete", delete_product_path(product.id), method: :delete, data: { confirm: "Are you sure?" } %>
   </div>
 <% end %>
+
+<h3>Create a product</h3>
+<%= form_with model: @product, url: products_path, method: :post do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
 <h1>Users#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
 <h3>My Users</h3>
 <% @users.each_with_index do |user, index| %>
   <div>
@@ -52,18 +62,6 @@
   </div>
 <% end %>
 
-
-<h3>Create a product</h3>
-<%= form_with model: @product, url: products_path, method: :post do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
-
 <h3>Create a user</h3>
 <%= form_with model: @user, url: users_path, method: :post do |form| %>
   <div>
@@ -78,3 +76,36 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<h1>Sales#index</h1>
+<h3>My Sales</h3>
+<% @sales.each do |sale| %>
+  <div>
+    <!-- Read/Display Product -->
+    <p>
+      Product: <%= sale.product_name %><br>
+      Buyer: <%= sale.user_nickname %><br>
+      Quantity: <%= sale.quantity %>
+     </p>
+  
+    
+    <!-- Delete Sale -->
+    <%= button_to "Delete", delete_sale_path(user.id), method: :delete, data: { confirm: "Are you sure?" } %>
+  </div>
+<% end %>
+
+<h3>Create a sale</h3>
+<%= form_with model: @sale, url: sales_path, method: :post do |form| %>
+  <div>
+    <%= form.label :product_name %>
+    <%= form.text_field :product_name %>
+    <%= form.label :user_nickname %>
+    <%= form.text_field :user_nickname %>
+    <%= form.label :quantity %>
+    <%= form.text_field :quantity %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+

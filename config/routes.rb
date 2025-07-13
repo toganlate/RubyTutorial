@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   get "/users", to: "users#index"
   post "/users", to: "users#create"
   patch "/users/:id", to: "users#update", as: "update_user" # PATCH is used in rails in place of "Update" 
-  delete "/uers/:id", to: "users#delete", as: "delete_user"
+  delete "/users/:id", to: "users#delete", as: "delete_user"
+  get "/sales", to: "sales#index"
+  post "/sales", to: "sales#create"
+  patch "/sales/:id", to: "sales#update", as: "update_sale" # PATCH is used in rails in place of "Update" 
+  delete "/sales/:id", to: "sales#delete", as: "delete_sale"
 end
 
